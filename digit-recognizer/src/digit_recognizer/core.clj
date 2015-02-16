@@ -6,16 +6,34 @@
 ;num training cases total in train.csv 42000
 ;40k training 2k testing
 
+(defmacro n? [r]
+  `(if (contains? ~r :n) (inc (:n ~r)) 2))
+
 (defn parse-data [data]
-  ;sum every 28, should result in 28 features
-  (flatten (map (partial reduce +) (partition-all 5 (map #(Integer/parseInt %) data)))))
+  (map #(Integer/parseInt %) data))
+
+(defn cma [n last-cma x]
+  (/ (+ x (* n last-cma)) (inc n)))
+
+(defn avg-data [neighborhood]
+  (map
+    #(reduce
+      (fn [r x]
+        {:class (:class x)
+         :features (map (partial cma (n? r)) (:features r) (:features x))
+         :n (n? r)})
+      %)
+    (map #(get neighborhood %)
+         (keys neighborhood))))
 
 (defn build-neighborhood [rdr]
-  (map (fn [line]
-         (let [[label & data] (str/split line #",")]
-           {:class label
-            :features (parse-data data)}))
-       (take 10000 (rest (line-seq rdr)))))
+  ;now group by class and average
+  (group-by :class
+            (map (fn [line]
+                   (let [[label & data] (str/split line #",")]
+                     {:class label
+                      :features (parse-data data)}))
+                 (take 15000 (rest (line-seq rdr))))))
 
 (defn classify [rdr neighborhood]
   (doall
@@ -23,7 +41,7 @@
            (let [[answer & data] (str/split line #",")]
              [(:class (knn/classify 1 neighborhood (parse-data data)))
               answer]))
-         (take 1000 (line-seq rdr)))))
+         (take 100 (line-seq rdr)))))
 
 (defn get-accuracy [results]
   (/ (reduce +
@@ -37,6 +55,6 @@
   [& args]
   (time
     (with-open [rdr (clojure.java.io/reader "train.csv")]
-      (let [neighborhood (build-neighborhood rdr)
+      (let [neighborhood (avg-data (build-neighborhood rdr))
             results (classify rdr neighborhood)]
         (println (get-accuracy results))))))
