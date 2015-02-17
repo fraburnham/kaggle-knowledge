@@ -26,8 +26,8 @@
       <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="648">
-              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="684">
+              <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -38,8 +38,8 @@
       <file leaf-file-name="submission.csv" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/submission.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28985506" vertical-offset="0" max-vertical-offset="621">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.82608694" vertical-offset="503487" max-vertical-offset="504126">
+              <caret line="28000" column="7" selection-start-line="28000" selection-start-column="7" selection-end-line="28000" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -55,8 +55,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/submission.csv" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/submission.csv" />
       </list>
     </option>
   </component>
@@ -483,8 +483,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="648">
-          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="684">
+          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
@@ -493,8 +493,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/submission.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28985506" vertical-offset="0" max-vertical-offset="621">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.82608694" vertical-offset="503487" max-vertical-offset="504126">
+          <caret line="28000" column="7" selection-start-line="28000" selection-start-column="7" selection-end-line="28000" selection-end-column="7" />
           <folding />
         </state>
       </provider>

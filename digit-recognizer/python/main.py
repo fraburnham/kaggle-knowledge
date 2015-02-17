@@ -1,6 +1,8 @@
 import csv
 from sklearn.neighbors import KNeighborsClassifier
 
+#TODO: clean up bad file handling in this file
+
 n = KNeighborsClassifier(n_neighbors=1)
 print "Loading file..."
 data = list(csv.reader(open("../train.csv", "rU")))
