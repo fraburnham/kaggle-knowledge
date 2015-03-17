@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: com.evolvingneuron/KDTree:0.1.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/evolvingneuron/KDTree/0.1.0/KDTree-0.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

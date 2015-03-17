@@ -1,28 +1,35 @@
 (ns digit-recognizer.core
   (:require [k-nn.core :as knn]
             [clojure.string :as str])
-  (:gen-class))
+  (:gen-class)
+  (:import (com.evolvingneuron KDNode)))
+
+(set! *warn-on-reflection* true)
+(set! *unchecked-math* true)
 
 (defn parse-data [data]
-  (flatten (map (partial reduce +)
-                (partition-all 5 (map #(Integer/parseInt %) data)))))
+  (float-array (map #(Float/parseFloat %) data)))
 
 (defn build-neighborhood [rdr]
   (map (fn [line]
          (let [[label & data] (str/split line #",")]
-           {:class label
-            :features (parse-data data)}))
-       (take 10000 (rest (line-seq rdr)))))
-
-(defn classify [rdr neighborhood]
-  (map (fn [line]
-         (let [data (str/split line #",")]
-           (:class (knn/classify 1 neighborhood (parse-data data)))))
+           {:class label :features (parse-data data)}))
        (rest (line-seq rdr))))
 
+(defn classify [rdr neighborhood]
+  (let [kdtree (knn/prepare neighborhood)]
+    (pmap (fn [line]
+            (let [data (str/split line #",")]
+              (:class
+                (.getValue
+                  ^KDNode (knn/classify
+                            1 kdtree
+                            {:class nil :features (parse-data data)})))))
+          (rest (line-seq rdr)))))
+
 (defn file-dump [results]
-  (with-open [dump (clojure.java.io/writer "submission.csv")]
-    (.write dump (str "ID,label\n"))
+  (with-open [dump (clojure.java.io/writer "test-submission.csv")]
+    (.write dump (str "ImageId,Label\n"))
     (loop [res results
            id 1]
       (if (not (empty? res))

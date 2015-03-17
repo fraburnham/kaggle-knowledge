@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: k-nn:0.2.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/k-nn/k-nn/0.2.0-SNAPSHOT/k-nn-0.2.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
